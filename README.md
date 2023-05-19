@@ -1,0 +1,2 @@
+# BlockPlan
+Projekt blokowego plannera
