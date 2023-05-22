@@ -1,5 +1,4 @@
 package com.jakurych.blockplan.blockplan.model.domain;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
