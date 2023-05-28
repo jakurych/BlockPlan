@@ -1,9 +1,7 @@
 package com.jakurych.blockplan.blockplan.model.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,9 +9,5 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class Test {
-    @Id
-    private Integer id;
-    private String name;
-    private String description;
+public class Schedule {
 }

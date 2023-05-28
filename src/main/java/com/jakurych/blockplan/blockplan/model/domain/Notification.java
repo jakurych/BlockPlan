@@ -4,16 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
 @Getter
 @Setter
-public class Test {
+public class Notification {
     @Id
-    private Integer id;
-    private String name;
-    private String description;
+    int id;
+    String type;
+    String text;
 }
