@@ -1,10 +1,12 @@
 package com.jakurych.blockplan.blockplan.model.repository;
+
 import com.jakurych.blockplan.blockplan.model.domain.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User,Integer> {
+import java.util.List;
 
-    //do S Q L
+public interface UserRepository extends JpaRepository<User, Integer> {
+    User findByUsername(String username);
 
 }

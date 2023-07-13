@@ -14,26 +14,26 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
 
-    public List<User>findAll(){
+    public User createOrUpdate(User user) {
+        userRepository.save(user);
+        return null; //TODO: one/two line(s)
+    }
+
+    public User delete(Integer id) {
+        User user = findById(id);
+        userRepository.delete(user);
+        return user; //TODO: one/two line(s)
+    }
+
+    public User findById(int id) {
+
+        return userRepository.findById(id).orElse(null);
+    }
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
+    public List<User> findAll() {
         return userRepository.findAll();
     }
-
-    //C R U D
-/*
-    public User getUser(int id){
-        User user = new User();
-        user = userRepository.findById(id);
-
-        return user;
-
-    }
-    public User deleteUser(){
-
-    }
-    public User putUser(){
-
-    }
-    public User postCreate(){
-
-    }*/
 }

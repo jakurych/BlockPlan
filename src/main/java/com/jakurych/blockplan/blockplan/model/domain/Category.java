@@ -1,6 +1,7 @@
 package com.jakurych.blockplan.blockplan.model.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @AllArgsConstructor
@@ -10,4 +11,6 @@ import lombok.*;
 @Getter
 @Setter
 public class Category {
+    @Id
+    private int id;
 }

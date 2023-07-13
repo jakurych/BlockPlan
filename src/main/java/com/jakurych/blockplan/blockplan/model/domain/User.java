@@ -1,8 +1,5 @@
 package com.jakurych.blockplan.blockplan.model.domain;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.ZonedDateTime;
@@ -10,6 +7,7 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "users")
 @Builder
 @Getter
 @Setter
