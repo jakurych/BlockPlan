@@ -13,4 +13,6 @@ import lombok.*;
 public class Category {
     @Id
     private int id;
+    private String name;
+    private int color;
 }

@@ -2,6 +2,7 @@ package com.jakurych.blockplan.blockplan.model.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @AllArgsConstructor
@@ -17,5 +18,6 @@ public class User {
     private int id;
     private String email;
     private String username;
+    private LocalDateTime registrationDate; // Dodane pole reprezentujące datę rejestracji użytkownika.
     private ZonedDateTime zonedDateTime;
 }
