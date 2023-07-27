@@ -19,4 +19,5 @@ private int id;
 private String name;
 private Duration duration;
 private Color color;
+
 }
