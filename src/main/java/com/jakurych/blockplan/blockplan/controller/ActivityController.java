@@ -1,10 +1,13 @@
 package com.jakurych.blockplan.blockplan.controller;
 
+
 import com.jakurych.blockplan.blockplan.model.domain.Activity;
 import com.jakurych.blockplan.blockplan.service.ActivityService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.jakurych.blockplan.blockplan.dto.ActivityDto;
+import com.jakurych.blockplan.blockplan.model.domain.Activity;
 
 
 import java.time.Duration;
@@ -20,7 +23,7 @@ public class ActivityController {
     }
 
     @PostMapping
-    public ResponseEntity<Activity> create(@RequestBody Activity activity) {
+    public ResponseEntity<ActivityDto> create(@RequestBody ActivityDto activity) {
         return ResponseEntity.ok(activityService.createOrUpdate(activity));
     }
 
@@ -31,8 +34,8 @@ public class ActivityController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Activity> find(@PathVariable int id) {
-        Activity activity = activityService.findById(id);
+    public ResponseEntity<ActivityDto> find(@PathVariable int id) {
+        ActivityDto activity = activityService.findById(id);
         if (activity != null) {
             return ResponseEntity.ok(activity);
         } else {
@@ -41,14 +44,14 @@ public class ActivityController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Activity>> findAll() {
-        List<Activity> activities = activityService.findAll();
+    public ResponseEntity<List<ActivityDto>> findAll() {
+        List<ActivityDto> activities = activityService.findAll();
         return ResponseEntity.ok(activities);
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<Activity> findByName(@PathVariable String name) {
-        Activity activity = activityService.findByName(name);
+    public ResponseEntity<ActivityDto> findByName(@PathVariable String name) {
+        ActivityDto activity = activityService.findByName(name);
         if (activity != null) {
             return ResponseEntity.ok(activity);
         } else {
@@ -57,8 +60,8 @@ public class ActivityController {
     }
 
     @GetMapping("/duration")
-    public ResponseEntity<List<Activity>> findByDuration(@RequestParam(name = "duration") Duration duration) {
-        List<Activity> activities = activityService.findByDuration(duration);
+    public ResponseEntity<List<ActivityDto>> findByDuration(@RequestParam(name = "duration") Duration duration) {
+        List<ActivityDto> activities = activityService.findByDuration(duration);
         return ResponseEntity.ok(activities);
     }
 

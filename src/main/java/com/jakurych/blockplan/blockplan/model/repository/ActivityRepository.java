@@ -10,5 +10,4 @@ public interface ActivityRepository extends JpaRepository<Activity, Integer> {
     List<Activity> findByDuration(Duration duration);
     Activity findByName(String name);
 
-
 }

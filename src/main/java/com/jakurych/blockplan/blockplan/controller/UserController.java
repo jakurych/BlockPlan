@@ -1,5 +1,6 @@
 package com.jakurych.blockplan.blockplan.controller;
 
+import com.jakurych.blockplan.blockplan.dto.UserDto;
 import com.jakurych.blockplan.blockplan.model.domain.User;
 import com.jakurych.blockplan.blockplan.service.UserService;
 import org.springframework.http.MediaType;
@@ -19,13 +20,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
+    public ResponseEntity<UserDto> create(@RequestBody UserDto user) {
         return ResponseEntity.ok(userService.createOrUpdate(user));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<User> delete(@PathVariable Integer id) {
-        User deletedUser = userService.delete(id);
+    public ResponseEntity<UserDto> delete(@PathVariable Integer id) {
+        UserDto deletedUser = userService.delete(id);
         if (deletedUser != null) {
             return ResponseEntity.ok(deletedUser);
         } else {
@@ -34,8 +35,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> find(@PathVariable int id) {
-        User user = userService.findById(id);
+    public ResponseEntity<UserDto> find(@PathVariable int id) {
+        UserDto user = userService.findById(id);
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
@@ -44,14 +45,14 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
-        List<User> users = userService.findAll();
+    public ResponseEntity<List<UserDto>> findAll() {
+        List<UserDto> users = userService.findAll();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("/username/{username}")
-    public ResponseEntity<User> findByUsername(@PathVariable String username) {
-        User user = userService.findByUsername(username);
+    public ResponseEntity<UserDto> findByUsername(@PathVariable String username) {
+        User userDto = userService.findByUsername(username);
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
@@ -60,8 +61,8 @@ public class UserController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<User> findByEmail(@PathVariable String email) {
-        User user = userService.findByEmail(email);
+    public ResponseEntity<UserDto> findByEmail(@PathVariable String email) {
+        UserDto user = userService.findByEmail(email);
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
@@ -70,11 +71,11 @@ public class UserController {
     }
 
     @GetMapping("/registrationDateBetween")
-    public ResponseEntity<List<User>> findByRegistrationDateBetween(
+    public ResponseEntity<List<UserDto>> findByRegistrationDateBetween(
             @RequestParam(name = "startDateTime") LocalDateTime startDateTime,
             @RequestParam(name = "endDateTime") LocalDateTime endDateTime
     ) {
-        List<User> users = userService.findByRegistrationDateBetween(startDateTime, endDateTime);
+        List<UserDto> users = userService.findByRegistrationDateBetween(startDateTime, endDateTime);
         return ResponseEntity.ok(users);
     }
 }
